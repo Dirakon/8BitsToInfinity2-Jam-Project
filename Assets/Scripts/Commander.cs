@@ -24,7 +24,8 @@ public class Commander : MonoBehaviour
         if (House.singleton.gameOver)
             return;
         if (Input.GetMouseButtonDown(1) && chosenOne != null){
-            
+            Boss.singleton.OrderToOrder();
+
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Camera.main.nearClipPlane;
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);

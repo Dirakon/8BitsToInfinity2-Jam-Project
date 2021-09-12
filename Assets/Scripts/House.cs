@@ -21,13 +21,17 @@ public class House : MonoBehaviour
         gameOver = true;
         float t= 0;
         Vector3 start = transform.position;
-        Vector3 goal = transform.position + gameOverDistance*direction;
+        int sign = direction == transform.right? -1 : 1;
         while (t < 1)
         {
             t += (gameOverSpeed * Time.deltaTime);
             if (t > 1)
                 t = 1;
-            transform.localPosition = Vector3.Lerp(start, goal, t);
+            Vector3 angle = transform.rotation.eulerAngles;
+            angle.z+=sign*200f*massMultiplier*Time.deltaTime;
+            transform.rotation = Quaternion.Euler(angle);
+
+            transform.localPosition = Vector3.Lerp(start, transform.position + gameOverDistance*sign*(-transform.right), t);
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(2f);
@@ -66,6 +70,6 @@ public class House : MonoBehaviour
         while (angle.z<-90)
             angle.z+=180;
         if (Mathf.Abs(angle.z) >= 35)
-        StartCoroutine(GameOver(angle.z < 0? transform.right : -transform.right));
+            StartCoroutine(GameOver(angle.z < 0? transform.right : -transform.right));
     }
 }
