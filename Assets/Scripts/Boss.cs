@@ -8,6 +8,7 @@ public class Boss : MonoBehaviour
     public static Boss singleton;
     public bool acceptsOrders = true;
     public Animator animator;
+    public GameObject[] bubbles;
     void Awake(){
         animator = GetComponent<Animator>();
         singleton = this;
@@ -15,9 +16,13 @@ public class Boss : MonoBehaviour
     public void OrderSent(){
         acceptsOrders = false;
         animator.SetBool("Ordered", false);
+        bubbles[Random.Range(0,bubbles.Length)].SetActive(true);
     }
     public void OrderFinished(){
         acceptsOrders = true;
+        foreach (GameObject bubble in bubbles){
+            bubble.SetActive(false);
+        }
     }
     public void OrderToOrder(){
         if (!acceptsOrders)
