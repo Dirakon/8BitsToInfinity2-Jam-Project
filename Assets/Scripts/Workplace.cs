@@ -9,10 +9,12 @@ public class Workplace : MonoBehaviour
     {
         
     }
+    public MovingObject movingObject;
     public float distanceToActivate = 0.25f;
     public SpriteRenderer spriteRenderer;
     void Awake(){
 spriteRenderer = GetComponent<SpriteRenderer>();
+movingObject = GetComponent<MovingObject>();
     }
 
     bool someoneIsWorking = false;
@@ -27,6 +29,7 @@ spriteRenderer = GetComponent<SpriteRenderer>();
         if (House.singleton.gameOver)
             return;
         spriteRenderer.enabled = !someoneIsWorking;
+        movingObject.movingAllowed = !someoneIsWorking;
         someoneIsWorking=false;
     }
 }

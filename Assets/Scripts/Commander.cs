@@ -31,7 +31,7 @@ public class Commander : MonoBehaviour
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
             Vector3 housePosition = worldPosition - House.singleton.transform.position;
             float projection = House.singleton.GetProjection(housePosition);
-            chosenOne.TryAchieveGoal(Mathf.Abs(projection) < House.singleton.horizontalRadius? projection : House.singleton.horizontalRadius*(projection/Mathf.Abs(projection)));
+            chosenOne.TryAchieveGoal(House.singleton.capProjection(projection));
         }
     }
 }

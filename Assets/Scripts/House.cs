@@ -35,13 +35,17 @@ public class House : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(2f);
-        WeighterObject.weighterObjects=new List<WeighterObject>();
+        WeighterObject.weighterObjects=null;
+        MovingObject.movingObjects=null;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
     }
     public static House singleton;
     public float massMultiplier;
     public void FixedUpdate(){
 
+    }
+    public float capProjection(float projection){
+        return Mathf.Abs(projection) < House.singleton.horizontalRadius? projection : House.singleton.horizontalRadius*(projection/Mathf.Abs(projection));
     }
     public float GetProjection(Vector3 vectorToProject){
         return GetProjection(vectorToProject,false);
@@ -64,11 +68,19 @@ public class House : MonoBehaviour
         }
         Vector3 angle = transform.rotation.eulerAngles;
         angle.z-=angularVelocity*massMultiplier*Time.deltaTime;
-        transform.rotation = Quaternion.Euler(angle);
         while (angle.z>=90)
             angle.z-=180;
         while (angle.z<-90)
             angle.z+=180;
+        foreach(MovingObject movingObject in MovingObject.movingObjects){
+            if (!movingObject.movingAllowed)
+                continue;
+            float projection = GetProjection(movingObject.gameObject.transform.position- House.singleton.transform.position) ;
+            float newprojection = capProjection(projection- angle.z*movingObject.speedModifier*Time.deltaTime);
+            if (Mathf.Abs(newprojection)<horizontalRadius)
+                movingObject.gameObject.transform.position += transform.right*(newprojection-projection);
+        }
+        transform.rotation = Quaternion.Euler(angle);
         if (Mathf.Abs(angle.z) >= 35)
             StartCoroutine(GameOver(angle.z < 0? transform.right : -transform.right));
     }
