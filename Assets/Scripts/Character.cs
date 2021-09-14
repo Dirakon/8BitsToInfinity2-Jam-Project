@@ -84,7 +84,7 @@ public class Character : MonoBehaviour
 
     }
     // Update is called once per frame\
-    bool previouslyWorked = false;
+    public bool previouslyWorked = false;
     void Update()
     {
         if (House.singleton.gameOver)
