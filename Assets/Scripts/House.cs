@@ -96,7 +96,7 @@ public class House : MonoBehaviour
                 movingObject.gameObject.transform.position += transform.right * (newprojection - projection);
         }
         transform.rotation = Quaternion.Euler(angle);
-        if (Mathf.Abs(angle.z) >= 35 || minutesOnLevel <= 0)
-            StartCoroutine(GameOver(angle.z < 0 ? transform.right : -transform.right,minutesOnLevel<=0));
+        if (Mathf.Abs(angle.z) >= 35 || minutesOnLevel <= 0 || Input.GetKeyDown(KeyCode.R))
+            StartCoroutine(GameOver(angle.z < 0 ? transform.right : -transform.right,minutesOnLevel<=0|| Input.GetKeyDown(KeyCode.R)));
     }
 }
