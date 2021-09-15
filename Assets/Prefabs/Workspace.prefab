@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4967620592635672526}
   - component: {fileID: 225541189602316936}
   - component: {fileID: 8739248859993315652}
+  - component: {fileID: 5114276856220410117}
   m_Layer: 0
   m_Name: Workspace
   m_TagString: Untagged
@@ -97,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf00080e249f19a99704d1b8e2b30bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObject: {fileID: 0}
+  whoIsWorking: {fileID: 0}
   distanceToActivate: 0.4
   spriteRenderer: {fileID: 0}
   allowsRandomRotation: 0
@@ -112,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9d8dce4c796ce84a3a96998752b78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedModifier: 1
+  movingAllowed: 1
 --- !u!114 &8739248859993315652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +130,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relativeMass: 1
+--- !u!61 &5114276856220410117
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6094445666619116003}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

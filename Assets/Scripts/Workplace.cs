@@ -10,6 +10,7 @@ public class Workplace : MonoBehaviour
         
     }
     public MovingObject movingObject;
+    public Character whoIsWorking = null;
     public float distanceToActivate = 0.25f;
     public SpriteRenderer spriteRenderer;
     void Awake(){
@@ -17,10 +18,17 @@ spriteRenderer = GetComponent<SpriteRenderer>();
 movingObject = GetComponent<MovingObject>();
     }
 
+    void OnMouseDown(){
+        if (whoIsWorking != null){
+            whoIsWorking.OnMouseDown();
+        }
+    }
+
     bool someoneIsWorking = false;
     public bool allowsRandomRotation = false;
-    public void Work(){
+    public void Work(Character who){
         someoneIsWorking=true;
+        whoIsWorking = who;
     }
 
     // Update is called once per frame
@@ -30,6 +38,10 @@ movingObject = GetComponent<MovingObject>();
             return;
         spriteRenderer.enabled = !someoneIsWorking;
         movingObject.movingAllowed = !someoneIsWorking;
-        someoneIsWorking=false;
+        if (!someoneIsWorking){
+            whoIsWorking=null;
+        }else{
+            someoneIsWorking=false;
+        }
     }
 }

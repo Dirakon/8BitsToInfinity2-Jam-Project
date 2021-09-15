@@ -99,7 +99,7 @@ public class Character : MonoBehaviour
         else if (workplace != null && (workplace.distanceToActivate > ((Vector2)transform.position - (Vector2)workplace.transform.position).magnitude))
         {
             //Workin'
-            workplace.Work();
+            workplace.Work(this);
 
             animator.SetBool("isWorking", true);
             animator.SetBool("isRunning", false);

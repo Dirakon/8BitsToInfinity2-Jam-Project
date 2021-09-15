@@ -38,6 +38,10 @@ public class WorkList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (House.singleton.gameOver){
+            text.enabled=false;
+            return;
+        }
         bool missionComplete = true;
         string newText = "";
         foreach(Character character in characterToHisId.Keys){
