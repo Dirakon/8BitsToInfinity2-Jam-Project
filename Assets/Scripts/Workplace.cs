@@ -9,13 +9,18 @@ public class Workplace : MonoBehaviour
     {
         
     }
+    public void setArrowState(bool state){
+
+    }
     public MovingObject movingObject;
     public Character whoIsWorking = null;
     public float distanceToActivate = 0.25f;
     public SpriteRenderer spriteRenderer;
+    public BoxCollider2D boxCollider2D;
     void Awake(){
 spriteRenderer = GetComponent<SpriteRenderer>();
 movingObject = GetComponent<MovingObject>();
+boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void OnMouseDown(){
@@ -40,7 +45,9 @@ movingObject = GetComponent<MovingObject>();
         movingObject.movingAllowed = !someoneIsWorking;
         if (!someoneIsWorking){
             whoIsWorking=null;
+            boxCollider2D.enabled=false;
         }else{
+            boxCollider2D.enabled=true;
             someoneIsWorking=false;
         }
     }

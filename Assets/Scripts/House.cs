@@ -11,6 +11,7 @@ public class House : MonoBehaviour
         singleton = this;
         gameOver = false;
     }
+    public string nextLevel = "";
     void Start()
     {
     }
@@ -18,6 +19,9 @@ public class House : MonoBehaviour
     public float gameOverDistance = 30f;
     public float gameOverSpeed = 5f;
     public float horizontalRadius;
+    public void LoadNextScene(){
+        SceneManager.LoadScene(nextLevel,LoadSceneMode.Single);
+    }
     public static float inGameHour = 10f;
     public IEnumerator GameOver(Vector3 direction, bool skipScene = false)
     {
@@ -96,7 +100,7 @@ public class House : MonoBehaviour
                 movingObject.gameObject.transform.position += transform.right * (newprojection - projection);
         }
         transform.rotation = Quaternion.Euler(angle);
-        if (Mathf.Abs(angle.z) >= 35 || minutesOnLevel <= 0 || Input.GetKeyDown(KeyCode.R))
+        if (Mathf.Abs(angle.z) >= 23 || minutesOnLevel <= 0 || Input.GetKeyDown(KeyCode.R))
             StartCoroutine(GameOver(angle.z < 0 ? transform.right : -transform.right,minutesOnLevel<=0|| Input.GetKeyDown(KeyCode.R)));
     }
 }

@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (House.singleton.gameOver)
+        if (House.singleton.gameOver && House.singleton.nextLevel !="Level2")
             return;
         Commander.singleton.changeChosenOne(this);
     }
@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
     {
         id++;
         goalAchieved = true;
-        float ourProjection = House.singleton.GetProjection(transform.position);
+        float ourProjection = House.singleton.GetProjection(transform.position - House.singleton.transform.position);
         projection -= ourProjection;
         if (Mathf.Abs(projection) < rangeToIgnore)
             return;
@@ -59,6 +59,12 @@ public class Character : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+    }
+    public void getChosen(){
+
+    }
+    public void getUnchosen(){
+
     }
     IEnumerator goTo(Vector3 goal, int localId)
     {

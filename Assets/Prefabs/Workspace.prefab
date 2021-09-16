@@ -102,6 +102,7 @@ MonoBehaviour:
   whoIsWorking: {fileID: 0}
   distanceToActivate: 0.4
   spriteRenderer: {fileID: 0}
+  boxCollider2D: {fileID: 0}
   allowsRandomRotation: 0
 --- !u!114 &225541189602316936
 MonoBehaviour:
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00879ba7745324dbaed8bba725f4cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  relativeMass: 1
+  relativeMass: 0.75
 --- !u!61 &5114276856220410117
 BoxCollider2D:
   m_ObjectHideFlags: 0

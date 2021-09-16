@@ -34,10 +34,28 @@ public class WorkList : MonoBehaviour
     float[] achieved;
     public static WorkList singleton;
     public TextMeshPro text;
-
+    bool tutorialCompleted = false;
     // Update is called once per frame
     void Update()
     {
+        if (!tutorialCompleted &&  House.singleton.nextLevel == "Level2"){
+            // First level tutorial, here we go!
+            if (Commander.singleton.chosenOne == null){
+                House.singleton.gameOver = true;
+                text.text = "Click on the manager to choose him!";
+            }else{
+                text.text = "Send manager with right-click to balance the office!";
+                House.singleton.gameOver = false;
+            }
+            if (House.singleton.transform.rotation.eulerAngles.z > 0 && House.singleton.transform.rotation.eulerAngles.z < 100)
+                tutorialCompleted=true;
+
+
+            
+
+
+            return;
+        }
         if (House.singleton.gameOver){
             text.enabled=false;
             return;
@@ -64,7 +82,7 @@ public class WorkList : MonoBehaviour
         text.text = newText;
         if (missionComplete){
             // TODO something
-            Debug.Log("YAY!");
+            House.singleton.LoadNextScene();
         }
     }
 }
