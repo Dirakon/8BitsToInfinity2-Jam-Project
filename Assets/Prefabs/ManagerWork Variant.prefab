@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: speedModifier
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 225541189602316936, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
+      propertyPath: leftSideBaseSize
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4967620592635672526, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: allowsRandomRotation
       value: 1
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6094445666619116003, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: m_Name
-      value: ManagerWork
+      value: ManagerWork Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8739248859993315652, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: relativeMass

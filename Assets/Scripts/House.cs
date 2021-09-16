@@ -20,6 +20,8 @@ public class House : MonoBehaviour
     public float gameOverSpeed = 5f;
     public float horizontalRadius;
     public void LoadNextScene(){
+        WeighterObject.weighterObjects = null;
+        MovingObject.movingObjects = null;
         SceneManager.LoadScene(nextLevel,LoadSceneMode.Single);
     }
     public static float inGameHour = 10f;
@@ -56,9 +58,9 @@ public class House : MonoBehaviour
     {
 
     }
-    public float capProjection(float projection)
+    public float capProjection(float projection,float leeway =0f)
     {
-        return Mathf.Abs(projection) < House.singleton.horizontalRadius ? projection : House.singleton.horizontalRadius * (projection / Mathf.Abs(projection));
+        return Mathf.Abs(projection) < House.singleton.horizontalRadius + leeway ? projection : (House.singleton.horizontalRadius+ leeway ) * (projection / Mathf.Abs(projection));
     }
     public float GetProjection(Vector3 vectorToProject)
     {
@@ -95,8 +97,9 @@ public class House : MonoBehaviour
             if (!movingObject.movingAllowed)
                 continue;
             float projection = GetProjection(movingObject.gameObject.transform.position - House.singleton.transform.position);
-            float newprojection = capProjection(projection - angle.z * movingObject.speedModifier * Time.deltaTime);
-            if (Mathf.Abs(newprojection) < horizontalRadius)
+            float leeway = projection > 0? movingObject.rightSideBaseSize : movingObject.leftSideBaseSize;
+            float newprojection = capProjection(projection - angle.z * movingObject.speedModifier * Time.deltaTime,leeway);
+            if (Mathf.Abs(newprojection) < horizontalRadius+leeway)
                 movingObject.gameObject.transform.position += transform.right * (newprojection - projection);
         }
         transform.rotation = Quaternion.Euler(angle);

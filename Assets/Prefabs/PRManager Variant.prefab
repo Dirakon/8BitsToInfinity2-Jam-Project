@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 01e2f9d4422f3cccab04946b77f6838a, type: 2}
+    - target: {fileID: 6423966574188355588, guid: 3c247aee1327ac5ecbd932cb4e66a4c7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.56
+      objectReference: {fileID: 0}
     - target: {fileID: 7934908055106419701, guid: 3c247aee1327ac5ecbd932cb4e66a4c7, type: 3}
       propertyPath: m_Name
       value: PRManager Variant

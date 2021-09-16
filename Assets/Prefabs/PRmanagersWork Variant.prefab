@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: speedModifier
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 225541189602316936, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
+      propertyPath: leftSideBaseSize
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 225541189602316936, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
+      propertyPath: rightSideBaseSize
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2275142097273128023, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -65,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6094445666619116003, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: m_Name
-      value: PRmanagersWork
+      value: PRmanagersWork Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: speedModifier
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 39681395189534093, guid: fd1c2716d3e6c71509538cf2d1cff4d2, type: 3}
+      propertyPath: leftSideBaseSize
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2240467315919906003, guid: fd1c2716d3e6c71509538cf2d1cff4d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3825142248194148595, guid: fd1c2716d3e6c71509538cf2d1cff4d2, type: 3}
       propertyPath: m_Name
-      value: Plant
+      value: Plant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5503835536904355085, guid: fd1c2716d3e6c71509538cf2d1cff4d2, type: 3}
       propertyPath: m_LocalPosition.x

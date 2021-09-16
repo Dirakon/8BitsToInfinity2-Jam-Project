@@ -23,6 +23,8 @@ public class Character : MonoBehaviour
             return;
         Commander.singleton.changeChosenOne(this);
     }
+    public float rightSideLeeway = 0f;
+    public float leftSideLeeway = 0f;
     int id = -1;
     public void TryAchieveGoal(float projection)
     {
@@ -61,10 +63,12 @@ public class Character : MonoBehaviour
         }
     }
     public void getChosen(){
-
+        if (workplace != null)
+            workplace.setArrowState(true);
     }
     public void getUnchosen(){
-
+        if (workplace != null)
+            workplace.setArrowState(false);
     }
     IEnumerator goTo(Vector3 goal, int localId)
     {

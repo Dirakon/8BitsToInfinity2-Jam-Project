@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedModifier: 0.02
+  baseSize: 0.2
+  movingAllowed: 1
 --- !u!114 &7650119473599364939
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,10 @@ public class Commander : MonoBehaviour
         singleton=this;
     }
     public void changeChosenOne(Character newChosenOne){
+        if (chosenOne != null)
+            chosenOne.getUnchosen();
         chosenOne=newChosenOne;
+        chosenOne.getChosen();
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class Commander : MonoBehaviour
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
             Vector3 housePosition = worldPosition - House.singleton.transform.position;
             float projection = House.singleton.GetProjection(housePosition);
-            chosenOne.TryAchieveGoal(House.singleton.capProjection(projection));
+            chosenOne.TryAchieveGoal(House.singleton.capProjection(projection,projection>0?chosenOne.rightSideLeeway:chosenOne.leftSideLeeway));
         }
     }
 }

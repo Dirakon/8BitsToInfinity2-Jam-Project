@@ -34,7 +34,7 @@ public class WorkList : MonoBehaviour
     float[] achieved;
     public static WorkList singleton;
     public TextMeshPro text;
-    bool tutorialCompleted = false;
+    public bool tutorialCompleted = false;
     // Update is called once per frame
     void Update()
     {

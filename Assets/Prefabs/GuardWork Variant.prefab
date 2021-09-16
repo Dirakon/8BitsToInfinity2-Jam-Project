@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: speedModifier
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 225541189602316936, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
+      propertyPath: leftSideBaseSize
+      value: -0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 2275142097273128023, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -65,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6094445666619116003, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: m_Name
-      value: GuardWork
+      value: GuardWork Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8739248859993315652, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: relativeMass

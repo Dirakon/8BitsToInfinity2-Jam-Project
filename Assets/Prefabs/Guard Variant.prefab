@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4214736163591891620, guid: 3c247aee1327ac5ecbd932cb4e66a4c7, type: 3}
+      propertyPath: leftSideLeeway
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214736163591891620, guid: 3c247aee1327ac5ecbd932cb4e66a4c7, type: 3}
+      propertyPath: rightSideLeeway
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4344851017387117013, guid: 3c247aee1327ac5ecbd932cb4e66a4c7, type: 3}
       propertyPath: relativeMass
       value: 2.5
@@ -63,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0feaf7345a5752b30b28d4c27d4fb1e4, type: 2}
+    - target: {fileID: 6423966574188355588, guid: 3c247aee1327ac5ecbd932cb4e66a4c7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.41
+      objectReference: {fileID: 0}
     - target: {fileID: 7934908055106419701, guid: 3c247aee1327ac5ecbd932cb4e66a4c7, type: 3}
       propertyPath: m_Name
       value: Guard Variant

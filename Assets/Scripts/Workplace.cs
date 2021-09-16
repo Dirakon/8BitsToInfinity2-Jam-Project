@@ -10,8 +10,10 @@ public class Workplace : MonoBehaviour
         
     }
     public void setArrowState(bool state){
-
+        if (House.singleton.nextLevel != "Level2" || WorkList.singleton.tutorialCompleted)
+            arrow.SetActive(state);
     }
+    public GameObject arrow;
     public MovingObject movingObject;
     public Character whoIsWorking = null;
     public float distanceToActivate = 0.25f;
@@ -21,6 +23,7 @@ public class Workplace : MonoBehaviour
 spriteRenderer = GetComponent<SpriteRenderer>();
 movingObject = GetComponent<MovingObject>();
 boxCollider2D = GetComponent<BoxCollider2D>();
+arrow.SetActive(false);
     }
 
     void OnMouseDown(){
@@ -39,6 +42,9 @@ boxCollider2D = GetComponent<BoxCollider2D>();
     // Update is called once per frame
     void Update()
     {
+        if (WorkList.singleton.tutorialCompleted){
+            setArrowState(true);
+        }
         if (House.singleton.gameOver)
             return;
         spriteRenderer.enabled = !someoneIsWorking;
