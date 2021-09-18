@@ -35,12 +35,12 @@ public class Character : MonoBehaviour
     int id = -1;
     public void TryAchieveGoal(float projection)
     {
-        id++;
-        goalAchieved = true;
         float ourProjection = House.singleton.GetProjection(transform.position - House.singleton.transform.position);
         projection -= ourProjection;
         if (Mathf.Abs(projection) < rangeToIgnore)
             return;
+        goalAchieved = true;
+        id++;
         if (projection > 0)
         {
             spriteRenderer.flipX = true;
@@ -102,7 +102,7 @@ public class Character : MonoBehaviour
         }
 
     }
-    // Update is called once per frame\
+    // Update is called once per frame
     public bool previouslyWorked = false;
     void Update()
     {

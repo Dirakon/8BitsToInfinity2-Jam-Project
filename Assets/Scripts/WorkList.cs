@@ -36,6 +36,7 @@ public class WorkList : MonoBehaviour
     public TextMeshPro text;
     public bool tutorialCompleted = false;
     // Update is called once per frame
+    bool stopGameOverOnce = true;
     void Update()
     {
         if (!tutorialCompleted &&  House.singleton.nextLevel == "Level2"){
@@ -45,7 +46,9 @@ public class WorkList : MonoBehaviour
                 text.text = "Click on the manager to choose him!";
             }else{
                 text.text = "Send manager with right-click to balance the office!";
-                House.singleton.gameOver = false;
+                if (stopGameOverOnce)
+                    House.singleton.gameOver = false;
+                stopGameOverOnce = false;
             }
             if (House.singleton.transform.rotation.eulerAngles.z > 0 && House.singleton.transform.rotation.eulerAngles.z < 100)
                 tutorialCompleted=true;

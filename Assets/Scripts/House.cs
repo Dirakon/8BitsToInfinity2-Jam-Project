@@ -75,6 +75,16 @@ public class House : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (WeighterObject.weighterObjects == null)
+            return;
+        if (WeighterObject.weighterObjects[0] == null){
+            // some bug, for some reason weighters didn't update
+            
+        WeighterObject.weighterObjects = null;
+        MovingObject.movingObjects = null;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+   
+        }
         if (gameOver)
             return;
         minutesOnLevel -= Time.deltaTime;
@@ -105,6 +115,8 @@ public class House : MonoBehaviour
         if (Mathf.Abs(angle.z) >= 23 || minutesOnLevel <= 0 || Input.GetKeyDown(KeyCode.R)){
             SoundManager.singleton.fallingSound.Play();
             SoundManager.singleton.clockSound.Stop();
+            Debug.Log("Death apparently");
+            gameOver=true;
             StartCoroutine(GameOver(angle.z < 0 ? transform.right : -transform.right,minutesOnLevel<=0|| Input.GetKeyDown(KeyCode.R)));
         }
     }

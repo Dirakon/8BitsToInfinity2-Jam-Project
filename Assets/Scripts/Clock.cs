@@ -21,7 +21,7 @@ public class Clock : MonoBehaviour
         }
         if (!deathIncoming && timeInRealSeconds < House.inGameHour){
             deathIncoming = true;
-            nextCheckpoint = -999;
+            nextCheckpoint = -999; //make sure that short tick doesn't trigger again
             SoundManager.singleton.clockSound.Play();
         }
         if (timeInRealSeconds <= nextCheckpoint){

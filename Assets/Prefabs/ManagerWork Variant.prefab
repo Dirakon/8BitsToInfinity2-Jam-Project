@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 225541189602316936, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: speedModifier
-      value: 0.1
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 225541189602316936, guid: 451d223ee586d1ca8a3a539223fb5072, type: 3}
       propertyPath: leftSideBaseSize

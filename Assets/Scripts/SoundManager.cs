@@ -13,7 +13,6 @@ public class SoundManager : MonoBehaviour
         
     }
     void Awake(){
-        Debug.Log(volume);
         singleton=this;
         clockSound.volume *= volume;
         fallingSound.volume *= volume;
