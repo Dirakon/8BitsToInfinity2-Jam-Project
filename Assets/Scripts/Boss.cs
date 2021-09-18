@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
         singleton = this;
     }
     public void OrderSent(){
+        SoundManager.singleton.bossVoice.Play();
         acceptsOrders = false;
         animator.SetBool("Ordered", false);
         bubbles[Random.Range(0,bubbles.Length)].SetActive(true);

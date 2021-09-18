@@ -9,7 +9,6 @@ public class House : MonoBehaviour
     void Awake()
     {
         singleton = this;
-        gameOver = false;
     }
     public string nextLevel = "";
     void Start()
@@ -103,7 +102,10 @@ public class House : MonoBehaviour
                 movingObject.gameObject.transform.position += transform.right * (newprojection - projection);
         }
         transform.rotation = Quaternion.Euler(angle);
-        if (Mathf.Abs(angle.z) >= 23 || minutesOnLevel <= 0 || Input.GetKeyDown(KeyCode.R))
+        if (Mathf.Abs(angle.z) >= 23 || minutesOnLevel <= 0 || Input.GetKeyDown(KeyCode.R)){
+            SoundManager.singleton.fallingSound.Play();
+            SoundManager.singleton.clockSound.Stop();
             StartCoroutine(GameOver(angle.z < 0 ? transform.right : -transform.right,minutesOnLevel<=0|| Input.GetKeyDown(KeyCode.R)));
+        }
     }
 }

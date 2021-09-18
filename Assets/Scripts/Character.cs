@@ -6,6 +6,9 @@ public class Character : MonoBehaviour
 {
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+
+    public AudioSource walkSound;
+    public AudioSource workSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,9 @@ public class Character : MonoBehaviour
     public float rangeToIgnore = 0.25f;
     void Awake()
     {
+        walkSound.volume*=SoundManager.volume;
+        if (workSound != null)
+            workSound.volume*=SoundManager.volume;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
@@ -21,6 +27,7 @@ public class Character : MonoBehaviour
     {
         if (House.singleton.gameOver && House.singleton.nextLevel !="Level2")
             return;
+
         Commander.singleton.changeChosenOne(this);
     }
     public float rightSideLeeway = 0f;
@@ -72,6 +79,7 @@ public class Character : MonoBehaviour
     }
     IEnumerator goTo(Vector3 goal, int localId)
     {
+        walkSound.Play();
         goalAchieved = false;
         Vector3 start = transform.localPosition;
         goal.z = start.z;
@@ -79,18 +87,19 @@ public class Character : MonoBehaviour
         float t = 0;
         while (t < 1)
         {
-            if (id != localId)
+            if (id != localId || House.singleton.gameOver){
                 break;
-            if (House.singleton.gameOver)
-                break;
+            }
             t += (speed * Time.deltaTime) / dist;
             if (t > 1)
                 t = 1;
             transform.localPosition = Vector3.Lerp(start, goal, t);
             yield return new WaitForEndOfFrame();
         }
-        if (id == localId)
+        if (id == localId){
             goalAchieved = true;
+            walkSound.Stop();
+        }
 
     }
     // Update is called once per frame\
@@ -104,10 +113,20 @@ public class Character : MonoBehaviour
             //Walkin'
             animator.SetBool("isWorking", false);
             animator.SetBool("isRunning", true);
+            if (previouslyWorked && workSound != null)
+                workSound.Stop();
             previouslyWorked = false;
         }
         else if (workplace != null && (workplace.distanceToActivate > ((Vector2)transform.position - (Vector2)workplace.transform.position).magnitude))
         {
+
+            if (previouslyWorked == false){
+                if (workSound != null)
+                    workSound.Play();
+                float divergence = 0f;
+                divergence = House.singleton.GetProjection(transform.position-House.singleton.transform.position) - House.singleton.GetProjection(workplace.transform.position-House.singleton.transform.position) ;
+                workplace.transform.position += House.singleton.transform.right*divergence;
+            }
             //Workin'
             workplace.Work(this);
 
@@ -120,6 +139,8 @@ public class Character : MonoBehaviour
             //Chillin'
             animator.SetBool("isWorking", false);
             animator.SetBool("isRunning", false);
+            if (previouslyWorked && workSound != null)
+                workSound.Stop();
             previouslyWorked = false;
         }
     }
