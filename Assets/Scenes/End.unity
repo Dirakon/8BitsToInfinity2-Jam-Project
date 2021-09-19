@@ -123,6 +123,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &312508794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7612574229927022664, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_Color.b
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022664, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_Color.g
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022664, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_Color.r
+      value: 0.17254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5896
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1192
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022711, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_Name
+      value: bcgrnd (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
 --- !u!1 &434765666
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,16 +358,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1247539834
+--- !u!1001 &1331147389
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7612574229927022664, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_Color.b
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022664, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_Color.g
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612574229927022664, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
+      propertyPath: m_Color.r
+      value: 0.17254902
+      objectReference: {fileID: 0}
     - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7612574229927022665, guid: 34ab70190780be3b382129c2cc6a9044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -580,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0.51919615, b: 0.12014952, a: 1}
+  m_Color: {r: 0.9254902, g: 0.30588236, b: 0.1254902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

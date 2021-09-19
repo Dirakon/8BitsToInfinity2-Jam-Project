@@ -21,6 +21,13 @@ public class WorkList : MonoBehaviour
                 }
             }
         }
+        if (House.singleton.nextLevel == "Level2")
+        {
+            var p = characterToHisId.Keys;
+            foreach(var a in p){
+                a.workplace= null;
+            }
+        }
     }
     void Awake()
     {
@@ -39,6 +46,11 @@ public class WorkList : MonoBehaviour
     bool stopGameOverOnce = true;
     void Update()
     {
+        #if !UNITY_WEBGL
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
+        #endif
         if (!tutorialCompleted &&  House.singleton.nextLevel == "Level2"){
             // First level tutorial, here we go!
             if (Commander.singleton.chosenOne == null){
@@ -50,8 +62,14 @@ public class WorkList : MonoBehaviour
                     House.singleton.gameOver = false;
                 stopGameOverOnce = false;
             }
-            if (House.singleton.transform.rotation.eulerAngles.z > 0 && House.singleton.transform.rotation.eulerAngles.z < 100)
+            if (House.singleton.transform.rotation.eulerAngles.z > 0 && House.singleton.transform.rotation.eulerAngles.z < 100){
                 tutorialCompleted=true;
+
+            var p = characterToHisId.Keys;
+            foreach(var a in p){
+                a.workplace= workplaces[0];
+            }
+            }
 
 
             
@@ -75,7 +93,7 @@ public class WorkList : MonoBehaviour
             if (realAchieved < goals[id])
                 missionComplete=false;
             else{
-                newText += "<mark=#FF00FF80>";
+                newText += "<mark=#2E933C80>";
             }
             newText += phrases[id] + "(" + realAchieved.ToString() + " / " + goals[id].ToString() + ")\n";
             if (realAchieved >= goals[id]){

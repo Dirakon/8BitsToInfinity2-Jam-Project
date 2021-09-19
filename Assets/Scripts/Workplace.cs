@@ -42,6 +42,8 @@ arrow.SetActive(false);
     // Update is called once per frame
     void Update()
     {
+        if (WorkList.singleton == null)
+            return;
         if (WorkList.singleton.tutorialCompleted){
             setArrowState(true);
         }

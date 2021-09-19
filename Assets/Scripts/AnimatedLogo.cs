@@ -21,6 +21,11 @@ public class AnimatedLogo : MonoBehaviour
     public float minRot = -30,maxRot = 30;
     void Update()
     {
+        #if !UNITY_WEBGL
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
+        #endif
         if (tRot >= 1){
             float rotValue = Random.Range(minRot,maxRot);
             goalRot = new Vector3(0,0,rotValue);
